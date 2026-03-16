@@ -1,1 +1,916 @@
 
+%runfile /Users/dayanahfranklin/.spyder-py3/data_cleaning_project.py --wdir
+2.20.0
+Pygame ready
+
+--- BEFORE DROPPING COLUMNS ---
+        city city_ascii      lat       lng    country iso2 iso3   admin_name  capital  population          id
+0      Tokyo      Tokyo  35.6870  139.7495      Japan   JP  JPN        Tōkyō  primary  37785000.0  1392685764
+1    Jakarta    Jakarta  -6.1750  106.8275  Indonesia   ID  IDN      Jakarta  primary  33756000.0  1360771077
+2      Delhi      Delhi  28.6100   77.2300      India   IN  IND        Delhi    admin  32226000.0  1356872604
+3  Guangzhou  Guangzhou  23.1300  113.2600      China   CN  CHN    Guangdong    admin  26940000.0  1156237133
+4     Mumbai     Mumbai  19.0761   72.8775      India   IN  IND  Mahārāshtra    admin  24973000.0  1356226629
+Index(['city', 'city_ascii', 'lat', 'lng', 'country', 'iso2', 'iso3', 'admin_name', 'capital', 'population', 'id'], dtype='object')
+
+--- AFTER DROPPING COLUMNS ---
+Index(['city', 'country', 'state', 'population'], dtype='object')
+        city    country        state  population
+0      Tokyo      Japan        Tōkyō  37785000.0
+1    Jakarta  Indonesia      Jakarta  33756000.0
+2      Delhi      India        Delhi  32226000.0
+3  Guangzhou      China    Guangdong  26940000.0
+4     Mumbai      India  Mahārāshtra  24973000.0
+          city        country       state  population
+0     New York  United States    New York  18832416.0
+1  Los Angeles  United States  California  11885717.0
+2      Chicago  United States    Illinois   8489066.0
+3        Miami  United States     Florida   6113982.0
+4      Houston  United States       Texas   6046392.0
+
+--- BEFORE DROPPING COLUMNS ---
+Columns: ['movies', 'year', 'genre', 'rating', 'one-line', 'stars', 'votes', 'runtime', 'gross']
+                          movies         year                          genre  rating                       one-line  \
+0                  Blood Red Sky       (2021)  \nAction, Horror, Thriller...     6.1  \nA woman with a mysteriou...   
+1  Masters of the Universe: R...     (2021– )  \nAnimation, Action, Adven...     5.0  \nThe war for Eternia begi...   
+2               The Walking Dead  (2010–2022)  \nDrama, Horror, Thriller ...     8.2  \nSheriff Deputy Rick Grim...   
+3                 Rick and Morty     (2013– )  \nAnimation, Adventure, Co...     9.2  \nAn animated series that ...   
+4                Army of Thieves       (2021)  \nAction, Crime, Horror   ...     NaN  \nA prequel, set before th...   
+
+                           stars    votes  runtime gross  
+0  \n    Director:\nPeter Tho...   21,062    121.0   NaN  
+1  \n            \n    Stars:...   17,870     25.0   NaN  
+2  \n            \n    Stars:...  885,805     44.0   NaN  
+3  \n            \n    Stars:...  414,849     23.0   NaN  
+4  \n    Director:\nMatthias ...      NaN      NaN   NaN  
+
+--- AFTER DROPPING COLUMNS ---
+/Users/dayanahfranklin/.spyder-py3/data_cleaning_project.py:110: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'Unknown' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+  movies_df.fillna("Unknown", inplace=True)
+Movie: Blood Red Sky
+  year        : (2021)
+  genre       : Action, Horror, Thriller 
+  rating      : 6.1
+  description : A woman with a mysterious illness is forced into action when a group of terrorists attempt to hijack a transatlantic overnight flight.
+  runtime     : 121.0
+
+
+Movie: Masters of the Universe: Revelation
+  year        : (2021– )
+  genre       : Animation, Action, Adventure 
+  rating      : 5.0
+  description : The war for Eternia begins again in what may be the final battle between He-Man and Skeletor. A new animated series from writer-director Kevin Smith.
+  runtime     : 25.0
+
+
+Movie: The Walking Dead
+  year        : (2010–2022)
+  genre       : Drama, Horror, Thriller 
+  rating      : 8.2
+  description : Sheriff Deputy Rick Grimes wakes up from a coma to learn the world is in ruins and must lead a group of survivors to stay alive.
+  runtime     : 44.0
+
+
+Movie: Rick and Morty
+  year        : (2013– )
+  genre       : Animation, Adventure, Comedy 
+  rating      : 9.2
+  description : An animated series that follows the exploits of a super scientist and his not-so-bright grandson.
+  runtime     : 23.0
+
+
+Movie: Army of Thieves
+  year        : (2021)
+  genre       : Action, Crime, Horror 
+  rating      : Unknown
+  description : A prequel, set before the events of Army of the Dead, which focuses on German safecracker Ludwig Dieter leading a group of aspiring thieves on a top secret heist during the early stages of the zombie apocalypse.
+  runtime     : Unknown
+
+
+Movie: Outer Banks
+  year        : (2020– )
+  genre       : Action, Crime, Drama 
+  rating      : 7.6
+  description : A group of teenagers from the wrong side of the tracks stumble upon a treasure map that unearths a long buried secret.
+  runtime     : 50.0
+
+
+Movie: The Last Letter from Your Lover
+  year        : (2021)
+  genre       : Drama, Romance 
+  rating      : 6.8
+  description : A pair of interwoven stories set in the past and present follow an ambitious journalist determined to solve the mystery of a forbidden love affair at the center of a trove of secret love letters from 1965.
+  runtime     : 110.0
+
+
+Movie: Dexter
+  year        : (2006–2013)
+  genre       : Crime, Drama, Mystery 
+  rating      : 8.6
+  description : By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer who only targets other murderers.
+  runtime     : 53.0
+
+
+Movie: Never Have I Ever
+  year        : (2020– )
+  genre       : Comedy 
+  rating      : 7.9
+  description : The complicated life of a modern-day first generation Indian American teenage girl, inspired by Mindy Kaling's own childhood.
+  runtime     : 30.0
+
+
+Movie: Virgin River
+  year        : (2019– )
+  genre       : Drama, Romance 
+  rating      : 7.4
+  description : Seeking a fresh start, nurse practitioner Melinda Monroe moves from Los Angeles to a remote Northern California town and is surprised by what and who she finds.
+  runtime     : 44.0
+
+
+/Users/dayanahfranklin/.spyder-py3/data_cleaning_project.py:136: DtypeWarning: Columns (25) have mixed types. Specify dtype option on import or set low_memory=False.
+  airbnb_df = pd.read_csv(airbnb_path)
+
+--- BEFORE DROPPING COLUMNS ---
+Columns: ['id', 'NAME', 'host id', 'host_identity_verified', 'host name', 'neighbourhood group', 'neighbourhood', 'lat', 'long', 'country', 'country code', 'instant_bookable', 'cancellation_policy', 'room type', 'Construction year', 'price', 'service fee', 'minimum nights', 'number of reviews', 'last review', 'reviews per month', 'review rate number', 'calculated host listings count', 'availability 365', 'house_rules', 'license']
+        id                                              NAME      host id host_identity_verified host name neighbourhood group neighbourhood       lat      long        country country code instant_bookable cancellation_policy        room type  Construction year  price service fee  minimum nights  number of reviews last review  reviews per month  review rate number  calculated host listings count  availability 365                                                                                                                                                                                                                                                                                                                                                                                                          house_rules license
+0  1001254                Clean & quiet apt home by the park  80014485718            unconfirmed  Madaline            Brooklyn    Kensington  40.64749 -73.97237  United States           US            False              strict     Private room             2020.0  $966        $193             10.0                9.0  10/19/2021               0.21                 4.0                             6.0             286.0                                                                                                                                                                                                                                                                                                                                 Clean up and treat the home the way you'd like your home to be treated.  No smoking.     NaN
+1  1002102                             Skylit Midtown Castle  52335172823               verified     Jenna           Manhattan       Midtown  40.75362 -73.98377  United States           US            False            moderate  Entire home/apt             2007.0  $142         $28             30.0               45.0   5/21/2022               0.38                 4.0                             2.0             228.0  Pet friendly but please confirm with me if the pet you are planning on bringing with you is OK. I have a cute and quiet mixed chihuahua. I could accept more guests (for an extra fee) but this also needs to be confirmed beforehand. Also friends traveling together could sleep in separate beds for an extra fee (the second bed is either a sofa bed or inflatable bed). Smoking is only allowed on the porch.     NaN
+2  1002403               THE VILLAGE OF HARLEM....NEW YORK !  78829239556                    NaN     Elise           Manhattan        Harlem  40.80902 -73.94190  United States           US             True            flexible     Private room             2005.0  $620        $124              3.0                0.0         NaN                NaN                 5.0                             1.0             352.0                               I encourage you to use my kitchen, cooking and laundry facilities. There is no additional charge to use the washer/dryer in the basement.  No smoking, inside or outside. Come home as late as you want.  If you come home stumbling drunk, it's OK the first time. If you do it again, and you wake up me or the neighbors downstairs, we will be annoyed.  (Just so you know . . . )     NaN
+3  1002755                                               NaN  85098326012            unconfirmed     Garry            Brooklyn  Clinton Hill  40.68514 -73.95976  United States           US             True            moderate  Entire home/apt             2005.0  $368         $74             30.0              270.0    7/5/2019               4.64                 4.0                             1.0             322.0                                                                                                                                                                                                                                                                                                                                                                                                                  NaN     NaN
+4  1003689  Entire Apt: Spacious Studio/Loft by central park  92037596077               verified    Lyndon           Manhattan   East Harlem  40.79851 -73.94399  United States           US            False            moderate  Entire home/apt             2009.0  $204         $41             10.0                9.0  11/19/2018               0.10                 3.0                             1.0             289.0                                                                                                                                                                                                                                                     Please no smoking in the house, porch or on the property (you can go to the nearby corner).  Reasonable quiet after 10:30 pm.  Please remove shoes in the house.     NaN
+
+--- AFTER DROPPING COLUMNS ---
+Columns: ['id', 'name', 'host_id', 'host_identity_verified', 'host_name', 'neighbourhood_group', 'neighbourhood', 'lat', 'long', 'country', 'country_code', 'instant_bookable', 'cancellation_policy', 'room_type', 'construction_year', 'price', 'service_fee', 'minimum_nights', 'number_of_reviews', 'last_review', 'reviews_per_month', 'review_rate_number', 'calculated_host_listings_count', 'availability_365', 'house_rules']
+Airbnb: 0
+  id                         : 1001254
+  name                       : Clean & quiet apt home by the park
+  host_id                    : 80014485718
+  host_identity_verified     : unconfirmed
+  host_name                  : Madaline
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Kensington
+  lat                        : 40.64749
+  long                       : -73.97237
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : strict
+  room_type                  : Private room
+  construction_year          : 2020.0
+  price                      : $966 
+  service_fee                : $193 
+  minimum_nights             : 10.0
+  number_of_reviews          : 9.0
+  last_review                : 10/19/2021
+  reviews_per_month          : 0.21
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 6.0
+  availability_365           : 286.0
+  house_rules                : Clean up and treat the home the way you'd like your home to be treated. No smoking.
+
+
+Airbnb: 1
+  id                         : 1002102
+  name                       : Skylit Midtown Castle
+  host_id                    : 52335172823
+  host_identity_verified     : verified
+  host_name                  : Jenna
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Midtown
+  lat                        : 40.75362
+  long                       : -73.98377
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : moderate
+  room_type                  : Entire home/apt
+  construction_year          : 2007.0
+  price                      : $142 
+  service_fee                : $28 
+  minimum_nights             : 30.0
+  number_of_reviews          : 45.0
+  last_review                : 5/21/2022
+  reviews_per_month          : 0.38
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 2.0
+  availability_365           : 228.0
+  house_rules                : Pet friendly but please confirm with me if the pet you are planning on bringing with you is OK. I have a cute and quiet mixed chihuahua. I could accept more guests (for an extra fee) but this also needs to be confirmed beforehand. Also friends traveling together could sleep in separate beds for an extra fee (the second bed is either a sofa bed or inflatable bed). Smoking is only allowed on the porch.
+
+
+Airbnb: 2
+  id                         : 1002403
+  name                       : THE VILLAGE OF HARLEM....NEW YORK !
+  host_id                    : 78829239556
+  host_identity_verified     : Unknown
+  host_name                  : Elise
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Harlem
+  lat                        : 40.80902
+  long                       : -73.9419
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : flexible
+  room_type                  : Private room
+  construction_year          : 2005.0
+  price                      : $620 
+  service_fee                : $124 
+  minimum_nights             : 3.0
+  number_of_reviews          : 0.0
+  last_review                : Unknown
+  reviews_per_month          : Unknown
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 352.0
+  house_rules                : I encourage you to use my kitchen, cooking and laundry facilities. There is no additional charge to use the washer/dryer in the basement. No smoking, inside or outside. Come home as late as you want. If you come home stumbling drunk, it's OK the first time. If you do it again, and you wake up me or the neighbors downstairs, we will be annoyed. (Just so you know . . . )
+
+
+Airbnb: 3
+  id                         : 1002755
+  name                       : Unknown
+  host_id                    : 85098326012
+  host_identity_verified     : unconfirmed
+  host_name                  : Garry
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Clinton Hill
+  lat                        : 40.68514
+  long                       : -73.95976
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : moderate
+  room_type                  : Entire home/apt
+  construction_year          : 2005.0
+  price                      : $368 
+  service_fee                : $74 
+  minimum_nights             : 30.0
+  number_of_reviews          : 270.0
+  last_review                : 7/5/2019
+  reviews_per_month          : 4.64
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 322.0
+  house_rules                : Unknown
+
+
+Airbnb: 4
+  id                         : 1003689
+  name                       : Entire Apt: Spacious Studio/Loft by central park
+  host_id                    : 92037596077
+  host_identity_verified     : verified
+  host_name                  : Lyndon
+  neighbourhood_group        : Manhattan
+  neighbourhood              : East Harlem
+  lat                        : 40.79851
+  long                       : -73.94399
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : moderate
+  room_type                  : Entire home/apt
+  construction_year          : 2009.0
+  price                      : $204 
+  service_fee                : $41 
+  minimum_nights             : 10.0
+  number_of_reviews          : 9.0
+  last_review                : 11/19/2018
+  reviews_per_month          : 0.1
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 289.0
+  house_rules                : Please no smoking in the house, porch or on the property (you can go to the nearby corner). Reasonable quiet after 10:30 pm. Please remove shoes in the house.
+
+
+Airbnb: 5
+  id                         : 1004098
+  name                       : Large Cozy 1 BR Apartment In Midtown East
+  host_id                    : 45498551794
+  host_identity_verified     : verified
+  host_name                  : Michelle
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Murray Hill
+  lat                        : 40.74767
+  long                       : -73.975
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : flexible
+  room_type                  : Entire home/apt
+  construction_year          : 2013.0
+  price                      : $577 
+  service_fee                : $115 
+  minimum_nights             : 3.0
+  number_of_reviews          : 74.0
+  last_review                : 6/22/2019
+  reviews_per_month          : 0.59
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 374.0
+  house_rules                : No smoking, please, and no drugs.
+
+
+Airbnb: 6
+  id                         : 1004650
+  name                       : BlissArtsSpace!
+  host_id                    : 61300605564
+  host_identity_verified     : Unknown
+  host_name                  : Alberta
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Bedford-Stuyvesant
+  lat                        : 40.68688
+  long                       : -73.95596
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2015.0
+  price                      : $71 
+  service_fee                : $14 
+  minimum_nights             : 45.0
+  number_of_reviews          : 49.0
+  last_review                : 10/5/2017
+  reviews_per_month          : 0.4
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 224.0
+  house_rules                : Please no shoes in the house so bring slippers or extra socks to keep your feet warm- especially in winter! No smoking either inside or outside. Please be considerate of neighbors from 10pm-7am in terms of noise. Please take out any trash and leave in the large blue garbage bin at the end of the driveway when you leave.
+
+
+Airbnb: 7
+  id                         : 1005202
+  name                       : BlissArtsSpace!
+  host_id                    : 90821839709
+  host_identity_verified     : unconfirmed
+  host_name                  : Emma
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Bedford-Stuyvesant
+  lat                        : 40.68688
+  long                       : -73.95596
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2009.0
+  price                      : $1,060 
+  service_fee                : $212 
+  minimum_nights             : 45.0
+  number_of_reviews          : 49.0
+  last_review                : 10/5/2017
+  reviews_per_month          : 0.4
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 219.0
+  house_rules                : House Guidelines for our BnB We are delighted to welcome you. Check in Sun – Thurs by 8PM and Fri, Sat by 9pm. Please bear in mind that this is not a hotel but our home and we are opening it to you. We will do our utmost to make your stay enjoyable and fun. We ask that you take care to respect our home and its appearance. Thank you. Marilyn and Alan 1.ROOMS - The bedroom is yours for the duration of your stay. Be sure to let us know if you need something. Please keep it neat and tidy and take advantage of the closet and bureau for your belongings. We do ask that you turn off lights, air conditioner, fan, etc. when you are not in the room. Thank you. 2.LIGHTS – Please, too, remember to turn off lights on the stairway when returning. 3.KEYS - 2 house keys are provided - Replacement cost is $15 each 4.PARKING – Parking is available on street at all times. 5.SHOES – When the weather is inclement please remove shoes. 6.TOILETRIES - If you need them we can provide basic toiletr
+
+
+Airbnb: 8
+  id                         : 1005754
+  name                       : Large Furnished Room Near B'way
+  host_id                    : 79384379533
+  host_identity_verified     : verified
+  host_name                  : Evelyn
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Hell's Kitchen
+  lat                        : 40.76489
+  long                       : -73.98493
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : strict
+  room_type                  : Private room
+  construction_year          : 2005.0
+  price                      : $1,018 
+  service_fee                : $204 
+  minimum_nights             : 2.0
+  number_of_reviews          : 430.0
+  last_review                : 6/24/2019
+  reviews_per_month          : 3.47
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 180.0
+  house_rules                : - Please clean up after yourself when using the kitchen. - When using the bathroom, please be careful to minimize the amount of water on the floor when showering and using the sink. - Please make sure to remove any strands of hair from the sink and floors with a tissue or paper towel. - Be respectful of the noise levels after 11pm. - Please be quiet coming in late or leaving early. - No Smoking - No Pets - No overnight guests - For safety reasons, please make sure to shut and lock the windows and front door when you leave. *** Note: cancellations are subject to fees that are non refundable ***
+
+
+Airbnb: 9
+  id                         : 1006307
+  name                       : Cozy Clean Guest Room - Family Apt
+  host_id                    : 75527839483
+  host_identity_verified     : unconfirmed
+  host_name                  : Carl
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Upper West Side
+  lat                        : 40.80178
+  long                       : -73.96723
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : strict
+  room_type                  : Private room
+  construction_year          : 2015.0
+  price                      : $291 
+  service_fee                : $58 
+  minimum_nights             : 2.0
+  number_of_reviews          : 118.0
+  last_review                : 7/21/2017
+  reviews_per_month          : 0.99
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 375.0
+  house_rules                : NO SMOKING OR PETS ANYWHERE ON THE PROPERTY 1. Be respectful of the other tenants 2. If you use the grill, be sure to turn off the gas 3. Notify the owner of any discrepancies or things not functioning properly immediately 4. Please treat carpet stains promptly (or notify the owner) 5. Kindly turn off lights, air conditioners, and other electrical items when they aren't needed
+
+
+Airbnb: 10
+  id                         : 1006859
+  name                       : Cute & Cozy Lower East Side 1 bdrm
+  host_id                    : 1280143094
+  host_identity_verified     : verified
+  host_name                  : Miranda
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Chinatown
+  lat                        : 40.71344
+  long                       : -73.99037
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : flexible
+  room_type                  : Entire home/apt
+  construction_year          : 2004.0
+  price                      : $319 
+  service_fee                : $64 
+  minimum_nights             : 1.0
+  number_of_reviews          : 160.0
+  last_review                : 6/9/2019
+  reviews_per_month          : 1.33
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 4.0
+  availability_365           : 1.0
+  house_rules                : Unknown
+
+
+Airbnb: 11
+  id                         : 1007411
+  name                       : Beautiful 1br on Upper West Side
+  host_id                    : 18824631834
+  host_identity_verified     : verified
+  host_name                  : Alan
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Upper West Side
+  lat                        : 40.80316
+  long                       : -73.96545
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : flexible
+  room_type                  : Entire home/apt
+  construction_year          : 2008.0
+  price                      : $606 
+  service_fee                : $121 
+  minimum_nights             : 5.0
+  number_of_reviews          : 53.0
+  last_review                : 6/22/2019
+  reviews_per_month          : 0.43
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 163.0
+  house_rules                : My ideal guests would be warm, friendly, and respectful of sharing my home and it's rhythms. I am allergic to cigarettes, so no smoking please, not even in the yard. A quiet homecoming is much appreciated at the end of the evening's nightlife.
+
+
+Airbnb: 12
+  id                         : 1007964
+  name                       : Central Manhattan/near Broadway
+  host_id                    : 88136055909
+  host_identity_verified     : verified
+  host_name                  : Unknown
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Hell's Kitchen
+  lat                        : 40.76076
+  long                       : -73.98867
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : strict
+  room_type                  : Private room
+  construction_year          : 2008.0
+  price                      : $714 
+  service_fee                : $143 
+  minimum_nights             : 2.0
+  number_of_reviews          : 188.0
+  last_review                : 6/23/2019
+  reviews_per_month          : 1.5
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 258.0
+  house_rules                : - One of the bedroom closets is not accessible to guests - Please be mindful of the neighbors, quiet time after 10PM - Check-out time is at 11AM on the day of your departure. - If you're going to smoke outside, please clean up after yourself and do not throw cigarette butts on the ground - The refrigerator and cabinets are available for your use but please do not take food items unless explicitly permitted
+
+
+Airbnb: 13
+  id                         : 1008516
+  name                       : Lovely Room 1, Garden, Best Area, Legal rental
+  host_id                    : 26802410424
+  host_identity_verified     : verified
+  host_name                  : Darcy
+  neighbourhood_group        : brookln
+  neighbourhood              : South Slope
+  lat                        : 40.66829
+  long                       : -73.98779
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2010.0
+  price                      : $580 
+  service_fee                : $116 
+  minimum_nights             : 4.0
+  number_of_reviews          : 167.0
+  last_review                : 6/24/2019
+  reviews_per_month          : 1.34
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 3.0
+  availability_365           : 47.0
+  house_rules                : Unknown
+
+
+Airbnb: 14
+  id                         : 1009068
+  name                       : Wonderful Guest Bedroom in Manhattan for SINGLES
+  host_id                    : 88920244552
+  host_identity_verified     : verified
+  host_name                  : Leonardo
+  neighbourhood_group        : Manhattan
+  neighbourhood              : Upper West Side
+  lat                        : 40.79826
+  long                       : -73.96113
+  country                    : United States
+  country_code               : US
+  instant_bookable           : False
+  cancellation_policy        : flexible
+  room_type                  : Private room
+  construction_year          : 2019.0
+  price                      : $149 
+  service_fee                : $30 
+  minimum_nights             : 2.0
+  number_of_reviews          : 113.0
+  last_review                : 7/5/2019
+  reviews_per_month          : 0.91
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 68.0
+  house_rules                : Unknown
+
+
+Airbnb: 15
+  id                         : 1009621
+  name                       : West Village Nest - Superhost
+  host_id                    : 46551725984
+  host_identity_verified     : verified
+  host_name                  : Daniel
+  neighbourhood_group        : Manhattan
+  neighbourhood              : West Village
+  lat                        : 40.7353
+  long                       : -74.00525
+  country                    : United States
+  country_code               : US
+  instant_bookable           : True
+  cancellation_policy        : flexible
+  room_type                  : Entire home/apt
+  construction_year          : 2018.0
+  price                      : $578 
+  service_fee                : Unknown
+  minimum_nights             : 90.0
+  number_of_reviews          : 27.0
+  last_review                : 10/31/2018
+  reviews_per_month          : 0.22
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 100.0
+  house_rules                : Arrival time can be no later than 9:00PM unless pre-arranged. No visitors allowed at anytime without prior approval. Overnight guests are not allowed at all. There is no room for guests. Don't ask. No smoking. 11:00 PM is quiet time while watching private room tv is acceptable. No eating meals in the room. It's too small, you'll see what I'm saying, and there's a nice dining table for that. Small snacks are fine. If you cook and/or uses dishes and utensils then please clean them so someone else can use them. Do not leave anything uncleaned in the sink overnight. Shared areas of the home are expected to be maintained after you use them. There are no room services provided other than normal cleaning. Closet and dresser space is provided for your clothes.
+
+
+Airbnb: 16
+  id                         : 1010173
+  name                       : Only 2 stops to Manhattan studio
+  host_id                    : 62566345680
+  host_identity_verified     : unconfirmed
+  host_name                  : Heather
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Williamsburg
+  lat                        : 40.70837
+  long                       : -73.95352
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Entire home/apt
+  construction_year          : 2009.0
+  price                      : $778 
+  service_fee                : Unknown
+  minimum_nights             : 2.0
+  number_of_reviews          : 148.0
+  last_review                : 6/29/2019
+  reviews_per_month          : 1.2
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 197.0
+  house_rules                : Absolutely no smoking in the building, handling of art work or damaging personal property. All additional charges for movie rental are the responsibility of the renter. Shower before entering the hot tub. No glass or food in the hot tub. Turn off all lights and appliances when leaving the unit.
+
+
+Airbnb: 17
+  id                         : 1010725
+  name                       : Perfect for Your Parents + Garden
+  host_id                    : 80380130347
+  host_identity_verified     : verified
+  host_name                  : Ryan
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Fort Greene
+  lat                        : 40.69169
+  long                       : -73.97185
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : flexible
+  room_type                  : Entire home/apt
+  construction_year          : 2006.0
+  price                      : $656 
+  service_fee                : Unknown
+  minimum_nights             : 2.0
+  number_of_reviews          : 198.0
+  last_review                : 6/28/2019
+  reviews_per_month          : 1.72
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 96.0
+  house_rules                : - Please be mindful of the neighbors, quiet time after 10PM - Check-out time is at 11AM on the day of your departure. - If you're going to smoke outside, please clean up after yourself and do not throw cigarette butts on the ground - The refrigerator and cabinets are available for your use but please do not take food items unless explicitly permitted
+
+
+Airbnb: 18
+  id                         : 1011277
+  name                       : Chelsea Perfect
+  host_id                    : 73862528370
+  host_identity_verified     : verified
+  host_name                  : Alberta
+  neighbourhood_group        : manhatan
+  neighbourhood              : Chelsea
+  lat                        : 40.74192
+  long                       : -73.99501
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2008.0
+  price                      : $460 
+  service_fee                : Unknown
+  minimum_nights             : 1.0
+  number_of_reviews          : 260.0
+  last_review                : 7/1/2019
+  reviews_per_month          : 2.12
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 325.0
+  house_rules                : Unknown
+
+
+Airbnb: 19
+  id                         : 1011830
+  name                       : Hip Historic Brownstone Apartment with Backyard
+  host_id                    : 72145018858
+  host_identity_verified     : Unknown
+  host_name                  : Martin
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Crown Heights
+  lat                        : 40.67592
+  long                       : -73.94694
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Entire home/apt
+  construction_year          : 2004.0
+  price                      : $1,095 
+  service_fee                : Unknown
+  minimum_nights             : 3.0
+  number_of_reviews          : 53.0
+  last_review                : 6/22/2019
+  reviews_per_month          : 4.44
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 345.0
+  house_rules                : LAUNDRY - Laundry can be done by the visitor before 10 pm, preferably on weekends. - Please provide your own detergent and fabric conditioner. Keep the machine clean and remember to clean the filter before and after use. - Please ask hosts to teach you how to operate the machines if you are not familiar with it. - Please limit your load and washes as not to overload the machine. - One wash per week will be ideal. HOUSEKEEPING - The bedrooms shall be kept clean and tidy by the visitor. - Please be respectful of others and keep the bathroom clean – do not leave dirty clothes and trash lying around. - Each visitor is responsible for cleaning their own dirty dishes and throwing their own trash in the garbage bin outside. - Please provide your own toiletries such as bath soap, shampoo and toothpaste. KITCHEN USE - We are sharing our kitchen and kitchenware stuff. Please make sure to take care of them and make sure you clean, dry and put them back where you found them. If you are cooking, 
+
+
+Airbnb: 20
+  id                         : 1012382
+  name                       : Huge 2 BR Upper East Cental Park
+  host_id                    : 79805143117
+  host_identity_verified     : verified
+  host_name                  : Audrey
+  neighbourhood_group        : Manhattan
+  neighbourhood              : East Harlem
+  lat                        : 40.79685
+  long                       : -73.94872
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Entire home/apt
+  construction_year          : 2013.0
+  price                      : $281 
+  service_fee                : $56 
+  minimum_nights             : 7.0
+  number_of_reviews          : 0.0
+  last_review                : Unknown
+  reviews_per_month          : Unknown
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 2.0
+  availability_365           : 347.0
+  house_rules                : No smoking, No pets. No shoes in the house. Visitors are permitted in the common area only. Please use the dining room to enjoy your meals. Also refrain using an electronic device while having your meal. Quiet time between 10:00pm-6:00am.
+
+
+Airbnb: 21
+  id                         : 1012934
+  name                       : Sweet and Spacious Brooklyn Loft
+  host_id                    : 86554611512
+  host_identity_verified     : verified
+  host_name                  : Alissa
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Williamsburg
+  lat                        : 40.71842
+  long                       : -73.95718
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : flexible
+  room_type                  : Entire home/apt
+  construction_year          : 2016.0
+  price                      : $477 
+  service_fee                : $95 
+  minimum_nights             : 3.0
+  number_of_reviews          : 9.0
+  last_review                : 12/28/2021
+  reviews_per_month          : 0.07
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 1.0
+  availability_365           : 193.0
+  house_rules                : - No smoking or open flames on the property - Please respect the peace and privacy of our neighbors - Access Roslindale Urban Wild from street - do not jump backyard fence - Max of 3 occupants, please!
+
+
+Airbnb: 22
+  id                         : 1013487
+  name                       : CBG CtyBGd HelpsHaiti rm#1:1-4
+  host_id                    : 53754237010
+  host_identity_verified     : verified
+  host_name                  : Mary
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Park Slope
+  lat                        : 40.68069
+  long                       : -73.97706
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2013.0
+  price                      : $133 
+  service_fee                : $27 
+  minimum_nights             : 2.0
+  number_of_reviews          : 130.0
+  last_review                : 7/1/2019
+  reviews_per_month          : 1.09
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 6.0
+  availability_365           : 54.0
+  house_rules                : Arrival time can be no later than 10:00PM. No visitors allowed at anytime without prior approval. Overnight guests are only allowed as part of the reservation. Never more than 2 people in this room. No smoking. 11:00 PM is quiet time while watching private room tv is acceptable. No eating meals in the room. It's too small, you'll see what I'm saying, and there's a nice dining table for that. Small snacks are fine. If you cook and/or uses dishes and utensils then please clean them so someone else can use them. Do not leave anything uncleaned in the sink overnight. Shared areas of the home are expected to be maintained after you use them. There are no room services provided other than normal cleaning. Closet and dresser space is provided for your clothes.
+
+
+Airbnb: 23
+  id                         : 1014039
+  name                       : CBG Helps Haiti Room#2.5
+  host_id                    : 87668933180
+  host_identity_verified     : Unknown
+  host_name                  : William
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Park Slope
+  lat                        : 40.67989
+  long                       : -73.97798
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2017.0
+  price                      : $1,050 
+  service_fee                : $210 
+  minimum_nights             : 1.0
+  number_of_reviews          : 39.0
+  last_review                : 1/1/2019
+  reviews_per_month          : 0.37
+  review_rate_number         : 3.0
+  calculated_host_listings_count: 6.0
+  availability_365           : 9.0
+  house_rules                : Unknown
+
+
+Airbnb: 24
+  id                         : 1014591
+  name                       : CBG Helps Haiti Rm #2
+  host_id                    : 57827496420
+  host_identity_verified     : unconfirmed
+  host_name                  : Charlotte
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Park Slope
+  lat                        : 40.68001
+  long                       : -73.97865
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : strict
+  room_type                  : Private room
+  construction_year          : 2005.0
+  price                      : $816 
+  service_fee                : $163 
+  minimum_nights             : 2.0
+  number_of_reviews          : 71.0
+  last_review                : 7/2/2019
+  reviews_per_month          : 0.61
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 6.0
+  availability_365           : 344.0
+  house_rules                : We take great care of our home and expect you to do the same. Smoking is not permitted anywhere on the property.
+
+
+Airbnb: 25
+  id                         : 1015144
+  name                       : MAISON DES SIRENES1,bohemian apartment
+  host_id                    : 48387947293
+  host_identity_verified     : Unknown
+  host_name                  : Miranda
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Bedford-Stuyvesant
+  lat                        : 40.68371
+  long                       : -73.94028
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : strict
+  room_type                  : Entire home/apt
+  construction_year          : 2006.0
+  price                      : $1,175 
+  service_fee                : $235 
+  minimum_nights             : 2.0
+  number_of_reviews          : 88.0
+  last_review                : 6/19/2019
+  reviews_per_month          : 0.73
+  review_rate_number         : 4.0
+  calculated_host_listings_count: 2.0
+  availability_365           : 372.0
+  house_rules                : Unknown
+
+
+Airbnb: 26
+  id                         : 1015696
+  name                       : Sunny Bedroom Across Prospect Park
+  host_id                    : 81686279636
+  host_identity_verified     : Unknown
+  host_name                  : Carlos
+  neighbourhood_group        : Brooklyn
+  neighbourhood              : Windsor Terrace
+  lat                        : 40.65599
+  long                       : -73.97519
+  country                    : United States
+  country_code               : Unknown
+  instant_bookable           : Unknown
+  cancellation_policy        : moderate
+  room_type                  : Private room
+  construction_year          : 2021.0
+  price                      : $530 
+  service_fee                : $106 
+  minimum_nights             : 1.0
+  number_of_reviews          : 19.0
+  last_review                : 6/23/2019
+  reviews_per_month          : 1.37
+  review_rate_number         : 5.0
+  calculated_host_listings_count: 2.0
+  availability_365           : 344.0
+  house_rules                : Quiet neighborhood, middle apartment of big house, quiet after 11:00. No smoking or candles in apartment. Clean kitchen after use.
+
+
+
+--- UNIVERSITY TOWNS CLEANED ---
+Indexes: [0]
+Town: 0
+  State       : 176,Massachusetts,Bridgewater,Bridgewater State College
+  Town        : 177,Massachusetts,Cambridge,"Harvard University, Massachusetts Institute of Technology
+  University  : Lesley University, Cambridge College, Longy School of Music"
+
+
+
+Number of states found: 1
+States detected: ['176,Massachusetts,Bridgewater,Bridgewater State College']
+/Users/dayanahfranklin/.spyder-py3/data_cleaning_project.py:162: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'Unknown' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+  airbnb_df.fillna("Unknown", inplace=True)
+/Users/dayanahfranklin/.spyder-py3/data_cleaning_project.py:235: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  towns_df[['State','Town','University']] = towns_df[['State','Town','University']].applymap(get_citystate)
+
+
