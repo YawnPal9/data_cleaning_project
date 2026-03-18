@@ -2,6 +2,7 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 
+# Project finished 3/16/26 @5:17am
 pd.options.display.max_columns = None
 
 print(tf.__version__)
@@ -137,7 +138,7 @@ airbnb_df = pd.read_csv(airbnb_path)
 
 pd.set_option('display.width', 120)
 pd.set_option('display.max_columns', None)
-pd.set_option('display.max_colwidth', 30)
+pd.set_option('display.max_colwidth', 55)
 
 # Select useful columns to display
 cols = ['name','host_name','neighbourhood_group','room_type','price','minimum_nights']
@@ -172,10 +173,10 @@ print("Columns:", airbnb_df.columns.tolist())
 # Console display settings
 # ------------------------------
 existing_columns = airbnb_df.columns 
-for idx, row in airbnb_df.head(27).iterrows():
+for idx, row in airbnb_df.head(55).iterrows():
     print(f"Airbnb: {idx}")
     for col in airbnb_df.columns:
-        print(f"  {col:<27}: {row[col]}")  # 12 spaces for column names
+        print(f"  {col:<55}: {row[col]}")  # 12 spaces for column names
     print("\n")  # blank line between rows
 
 
@@ -184,6 +185,11 @@ for idx, row in airbnb_df.head(27).iterrows():
 #                   UNIVERSITY TOWNS                    
 #######################################################
 towns_path = "/Users/dayanahfranklin/python/datasets/university_towns.txt"
+
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', None)
+pd.set_option('display.max_colwidth', None)
 
 # Read file as raw text
 with open(towns_path, "r") as f:
@@ -210,7 +216,7 @@ for line in lines:
         })
 
 # Create dataframe
-towns_df = pd.DataFrame(data)
+towns_df = pd.read_csv(towns_path)
 
 #######################################################
 # CLEAN DATA
@@ -243,23 +249,31 @@ towns_df.index.name = 'Identifier'
 # DISPLAY RESULTS CONSOLE-FRIENDLY
 #######################################################
 
+print("\n--- Attempt Version ---")
+print(towns_df.to_string())
+print("States detected:", sorted(towns_df['State'].unique()))
+print("Total rows:", len(towns_df))
+
+
 print("\n--- UNIVERSITY TOWNS CLEANED ---")
 print("Indexes:", list(towns_df.index))
 
-# Loop through all rows and print structured output like movies/airbnb examples
 for idx, row in towns_df.iterrows():
     print(f"Town: {idx}")
     print(f"  State       : {row['State']}")
     print(f"  Town        : {row['Town']}")
     print(f"  University  : {row['University']}")
-    print("\n")  # blank line between rows
+    print("\n")
 
-# Show number of unique states
+#######################################################
+# SUMMARY
+#######################################################
+
 print("\nNumber of states found:", len(towns_df['State'].unique()))
 print("States detected:", sorted(towns_df['State'].unique()))
 
 #######################################################
-# SAVE CLEANED DATA
+# SAVE FILE
 #######################################################
 
 towns_df.to_csv(
