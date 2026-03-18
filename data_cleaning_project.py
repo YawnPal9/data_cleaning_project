@@ -14,7 +14,9 @@ print("Pygame ready")
 
 #                   WORLD CITIES    
 
-#######################################################                  
+#######################################################  
+print("\n\n========== WORLD CITIES ==========\n")  
+              
 csv_path = "/Users/dayanahfranklin/python/datasets/world_cities/worldcities.csv"
 
 # Read dataset
@@ -69,7 +71,8 @@ print(usa_cities.head())
 
 #                       MOVIES                          
 
-#######################################################")
+#######################################################"
+print("\n\n========== MOVIES ==========\n")
 movies_path = "/Users/dayanahfranklin/python/datasets/movies.csv"
 # Read dataset
 movies_df = pd.read_csv(movies_path)
@@ -132,7 +135,7 @@ for idx, row in movies_df.head(10).iterrows():
 
 #                   Airbnb                    
 #######################################################
-
+print("\n\n========== AIRBNB ==========\n")
 airbnb_path = "/Users/dayanahfranklin/python/datasets/Airbnb_Open_Data.csv"
 airbnb_df = pd.read_csv(airbnb_path)
 
@@ -258,12 +261,13 @@ print("Total rows:", len(towns_df))
 print("\n--- UNIVERSITY TOWNS CLEANED ---")
 print("Indexes:", list(towns_df.index))
 
-for idx, row in towns_df.iterrows():
-    print(f"Town: {idx}")
-    print(f"  State       : {row['State']}")
-    print(f"  Town        : {row['Town']}")
-    print(f"  University  : {row['University']}")
-    print("\n")
+with open("university_towns_full_output.txt", "w") as f:
+    for idx, row in towns_df.iterrows():
+        f.write(f"Town: {idx}")
+        f.write(f"  State       : {row['State']}")
+        f.write(f"  Town        : {row['Town']}")
+        f.write(f"  University  : {row['University']}")
+    f.write("\n")
 
 #######################################################
 # SUMMARY
